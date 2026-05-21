@@ -358,6 +358,17 @@ a.wi-link:hover{text-decoration:underline}
 .cb-text a{font-family:'Space Mono';font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-decoration:none}
 .cb-text a:hover{text-decoration:underline}
 
+
+/* ─── SEE MORE BAR ─── */
+.see-more-bar{
+  background:var(--black);
+  padding:clamp(24px,4vw,52px) clamp(20px,5vw,80px);
+  display:flex;align-items:center;justify-content:center;gap:24px;
+  border-top:1px solid #1e1e1e;border-bottom:2px solid var(--red);
+}
+.see-more-label{font-family:'Space Mono';font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red)}
+.see-more-link{font-family:'DM Serif Display';font-style:italic;font-size:clamp(22px,3vw,40px);color:var(--white);text-decoration:none;transition:color 0.2s}
+.see-more-link:hover{color:var(--red)}
 /* ─── EXPERIENCE ─── */
 #experience{
   display:grid;grid-template-columns:1fr 1fr;
@@ -688,6 +699,12 @@ a.wi-link:hover{text-decoration:underline}
     </div>
   </div>
 </section>
+
+<!-- SEE MORE -->
+<div class="see-more-bar reveal">
+  <span class="see-more-label">// Portfolio</span>
+  <a href="https://www.dropbox.com/scl/fo/qxgw09r1opmm5jkz4ww1v/AM025XRyqXRw5lmoDxpdTSk?rlkey=23l3j6r7od4aakhm5t66m02nk&st=vdg9uf2c&dl=0" target="_blank" rel="noopener noreferrer" class="see-more-link">To See More →</a>
+</div>
 
 <!-- EXPERIENCE -->
 <div class="section-header light reveal">
