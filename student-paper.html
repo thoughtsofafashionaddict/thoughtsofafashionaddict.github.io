@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Student — Alana Duffy</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display:ital@0;1&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#C81A1A;
+  --black:#0A0A0A;
+  --white:#FFFFFF;
+  --off:#F4F2EF;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Space Mono',monospace;overflow-x:hidden}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,4vw,50px);border-bottom:1px solid #222}
+.nav-logo{font-family:'Anton';font-size:20px;letter-spacing:2px;color:var(--white);text-decoration:none}
+.nav-back{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--white)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(60px,10vw,130px) clamp(20px,5vw,80px) clamp(40px,6vw,80px)}
+.hero-ghost{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Anton';font-size:clamp(70px,17vw,210px);white-space:nowrap;color:rgba(255,255,255,0.05);letter-spacing:-3px;line-height:1;pointer-events:none;user-select:none}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,5vw,70px);align-items:end}
+.label{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--red)}
+h1{font-family:'Anton';font-size:clamp(44px,8vw,110px);line-height:0.95;letter-spacing:2px;margin:14px 0 18px}
+h1 em{font-family:'DM Serif Display';font-style:italic;font-weight:400;color:var(--red);letter-spacing:0}
+.lede{font-size:11px;line-height:1.9;color:rgba(255,255,255,0.72);max-width:520px}
+.stat{border-left:2px solid var(--red);padding-left:clamp(16px,3vw,32px)}
+.stat-num{font-family:'Anton';font-size:clamp(70px,12vw,150px);line-height:0.9;color:var(--white)}
+.stat-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:8px}
+.stat-note{font-size:9px;line-height:1.8;color:#777;margin-top:14px}
+
+/* articles */
+.articles{background:var(--off);color:var(--black);padding:clamp(40px,6vw,90px) clamp(20px,5vw,80px)}
+.articles-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--red);padding-bottom:14px;margin-bottom:8px}
+.articles-head h2{font-family:'Anton';font-size:clamp(26px,4vw,48px);letter-spacing:2px;line-height:1}
+.articles-head h2 em{font-family:'DM Serif Display';font-style:italic;font-weight:400;color:var(--red);letter-spacing:0}
+.articles-head span{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:#888}
+.article{display:grid;grid-template-columns:150px 1fr auto;gap:clamp(14px,3vw,40px);align-items:start;padding:clamp(22px,3vw,34px) 0;border-bottom:1px solid #ddd;position:relative;transition:padding-left 0.2s}
+.article::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red);transition:width 0.15s}
+.article:hover::before{width:3px}
+.article:hover{padding-left:14px}
+.a-date{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--red);line-height:1.8}
+.a-date small{display:block;color:#999;letter-spacing:2px}
+.a-title{font-family:'DM Serif Display';font-style:italic;font-size:clamp(20px,2.6vw,32px);line-height:1.2}
+.a-desc{font-size:10px;line-height:1.8;color:#777;margin-top:8px;max-width:620px}
+.a-link{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;padding-top:6px}
+.a-link:hover{text-decoration:underline}
+
+/* cta */
+.cta{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:clamp(30px,4vw,56px) clamp(20px,5vw,80px);border-top:2px solid var(--red)}
+.cta p{font-family:'Anton';font-size:clamp(18px,3vw,34px);letter-spacing:3px;line-height:1.2}
+.cta a{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;border:1px solid rgba(255,255,255,0.4);padding:12px 22px;transition:background 0.2s}
+.cta a:hover{background:rgba(255,255,255,0.15)}
+.alongside{padding:0 clamp(20px,5vw,80px) clamp(30px,4vw,50px);font-size:9px;line-height:1.9;color:#777;font-style:italic}
+footer{padding:22px clamp(20px,5vw,80px);border-top:1px solid #222;font-size:8px;letter-spacing:2px;color:#555;text-transform:uppercase;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:#777;text-decoration:none}
+footer a:hover{color:var(--white)}
+
+@media (max-width:760px){
+  .hero-inner{grid-template-columns:1fr}
+  .article{grid-template-columns:1fr;gap:8px}
+  .a-link{padding-top:0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">AD</a>
+  <a class="nav-back" href="index.html#writing">← Back to portfolio</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-ghost">THE STUDENT</div>
+  <div class="hero-inner">
+    <div>
+      <div class="label">// Student Press — Edinburgh</div>
+      <h1>The <em>Student.</em></h1>
+      <p class="lede">I write for The Student, Edinburgh's oldest student newspaper, covering fashion and lifestyle: personal style, second-hand shopping and the culture around what we wear.</p>
+    </div>
+    <div class="stat">
+      <div class="stat-num">16</div>
+      <div class="stat-label">Published articles</div>
+      <p class="stat-note">Fashion &amp; lifestyle features, published online by The Student.</p>
+    </div>
+  </div>
+</header>
+
+<section class="articles">
+  <div class="articles-head">
+    <h2>Selected <em>articles.</em></h2>
+    <span>Lifestyle · Fashion</span>
+  </div>
+
+  <div class="article">
+    <div class="a-date">29 September 2026<small>Lifestyle · Fashion</small></div>
+    <div>
+      <div class="a-title">The Second Best Second Hand Shop: Are Charity Shops Failing?</div>
+      <p class="a-desc">Why young shoppers' enthusiasm for charity shops is fading, and whether that points to a wider drop in interest in pre-owned clothing rather than a move to resale apps.</p>
+    </div>
+    <a class="a-link" href="https://thestudentnews.co.uk/2026/09/29/the-second-best-second-hand-shop-are-charity-shops-failing/" target="_blank" rel="noopener">Read →</a>
+  </div>
+
+  <div class="article">
+    <div class="a-date">19 July 2026<small>Lifestyle</small></div>
+    <div>
+      <div class="a-title">What David Hockney Taught Us About Individual Style</div>
+      <p class="a-desc">After the artist's death, a look at how Hockney's own tastes and influences make him a model for dressing in a way that reflects who you are.</p>
+    </div>
+    <a class="a-link" href="https://thestudentnews.co.uk/2026/07/19/what-david-hockney-taught-us-about-individual-style/" target="_blank" rel="noopener">Read →</a>
+  </div>
+</section>
+
+<p class="alongside" style="padding-top:28px">Alongside The Student, I have also published 2 articles on a fashion blog.</p>
+
+<div class="cta">
+  <p>Every article, in one place</p>
+  <a href="https://thestudentnews.co.uk/author/alana-duffy/" target="_blank" rel="noopener">All my articles →</a>
+</div>
+
+<footer>
+  <span>© 2026 Alana Duffy</span>
+  <a href="index.html">← Back to portfolio</a>
+</footer>
+
+</body>
+</html>
