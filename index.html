@@ -138,6 +138,11 @@ nav{
   color:rgba(255,255,255,0.6);text-decoration:none;transition:color 0.2s;
 }
 .nav-links a:hover{color:var(--white)}
+@media (max-width:700px){
+  nav{align-items:flex-start;gap:10px}
+  .nav-links{flex-wrap:wrap;justify-content:flex-end;gap:6px 14px}
+  .nav-links a{letter-spacing:1.5px}
+}
 
 /* ─── ABOUT ─── */
 #about{
@@ -516,6 +521,7 @@ a.wi-link:hover{text-decoration:underline}
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#writing">Writing</a>
+    <a href="student-paper.html">The Student</a>
     <a href="#creative">Creative</a>
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
